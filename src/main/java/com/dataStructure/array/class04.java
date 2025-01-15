@@ -30,4 +30,22 @@ public class class04 {
             return l;
         }
     }
+    //新增二分法查找
+    public int searchInsert2(int[] nums, int target) {
+        int l = nums.length;
+        if (l == 0){
+            return 0;
+        }
+        int left = 0,right = l-1,answer = l;
+        while (left < right){
+            int mid = ((right - left) >> 1) + left;
+            if (target <= nums[mid]){
+                answer = nums[mid];
+                right = mid - 1;
+            }else {
+                left = mid + 1;
+            }
+        }
+        return answer;
+    }
 }
